@@ -15,6 +15,22 @@ class BaseController(MethodView):
             return jsonify(item), 201
         except Exception as e:
             return self.handle_error(e)
+        
+    def get_all(self):
+        try:
+            items = self.service_class.get_all()
+            return jsonify(items), 200
+        except Exception as e:
+            return self.handle_error(e)
+    
+    def get_by_id(self, id):
+        try:
+            item = self.service_class.get(id)
+            return jsonify(item), 200
+        except NotFound as e:
+            return jsonify({"error": str(e)}), 404
+        except Exception as e:
+            return self.handle_error(e)
 
     def update(self, id, data):
         try:

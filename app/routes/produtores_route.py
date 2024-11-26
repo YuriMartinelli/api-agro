@@ -11,3 +11,11 @@ _produtorController = ProdutorController()
 @bp.route('', methods=['POST'])
 def cadastrar_produtor():
     return _produtorController.create(request.json)
+
+@bp.route('', methods=['GET'])
+def listar_produtores():
+    return _produtorController.get_all()
+
+@bp.route('/<int:id>', methods=['get'])
+def buscar_produtor(id):
+    return _produtorController.get_by_id(id)
