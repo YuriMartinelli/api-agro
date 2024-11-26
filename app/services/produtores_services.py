@@ -1,7 +1,6 @@
 from typing import Callable
 from app.models.produtores import Produtor
 from app.services.base_service import BaseService
-from werkzeug.exceptions import BadRequest
 
 from app.utils.validadores import validar_cnpj, validar_cpf
 

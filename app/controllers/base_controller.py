@@ -42,6 +42,6 @@ class BaseController(MethodView):
     def delete(self, id):
         try:
             self.service_class.delete(id)
-            return '', 204
+            return f'Usuario {id} deletado com sucesso', 200
         except Exception as e:
             return self.handle_error(e)

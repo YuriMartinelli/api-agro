@@ -16,6 +16,14 @@ def cadastrar_produtor():
 def listar_produtores():
     return _produtorController.get_all()
 
-@bp.route('/<int:id>', methods=['get'])
+@bp.route('/<int:id>', methods=['GET'])
 def buscar_produtor(id):
     return _produtorController.get_by_id(id)
+
+@bp.route('/<int:id>', methods=['PUT'])
+def atualizar_produtor(id):
+    return _produtorController.update(id, request.json)
+
+@bp.route('/<int:id>', methods=['DELETE'])
+def deletar_produtor(id):
+    return _produtorController.delete(id)
