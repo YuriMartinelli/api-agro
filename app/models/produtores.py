@@ -4,7 +4,7 @@ class Produtor(db.Model):
     __tablename__ = 'produtores'
 
     id = db.Column(db.Integer, primary_key=True)
-    cpf_cnpj = db.Column(db.String(14), unique=True, nullable=False)
+    cpf_cnpj = db.Column(db.String(18), unique=True, nullable=False)
     nome = db.Column(db.String(100), nullable=False)
     nome_fazenda = db.Column(db.String(100), nullable=False)
     cidade = db.Column(db.String(50), nullable=False)
