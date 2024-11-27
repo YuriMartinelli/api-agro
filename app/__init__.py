@@ -1,6 +1,6 @@
 from flask import Flask
 from .database import db, migrate
-from app.routes import produtores_route
+from app.routes import produtores_route, dashboard_route
 
 def create_app():
     app = Flask(__name__)
@@ -11,5 +11,5 @@ def create_app():
     migrate.init_app(app, db)
 
     app.register_blueprint(produtores_route.bp)
-
+    app.register_blueprint(dashboard_route.bp)
     return app

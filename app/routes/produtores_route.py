@@ -1,8 +1,5 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, request
 from app.controllers.produtores_controller import ProdutorController
-from app.models.produtores import Produtor
-from app.database import db
-from app.utils.validadores import validar_cnpj, validar_cpf
 
 bp = Blueprint('produtores', __name__, url_prefix='/produtores')
 
