@@ -1,0 +1,278 @@
+{
+	"info": {
+		"_postman_id": "0265e8ee-1b19-4eeb-999a-c68a2beae6e9",
+		"name": "API Agro",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23206956"
+	},
+	"item": [
+		{
+			"name": "Produtor",
+			"item": [
+				{
+					"name": "Get Todos Produtores",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/produtores",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"produtores"
+							]
+						},
+						"description": "Método para ver todos os produtores, não necessita parâmetros"
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Produtor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Jorgao\",\n    \"cpf_cnpj\": \"00.000.000/0001-04\",\n    \"nome_fazenda\": \"querencia 3\",\n    \"cidade\": \"Lages\",\n    \"estado\": \"SC\",\n    \"area_total\": 13,\n    \"area_agricultavel\": 7,\n    \"area_vegetacao\": 4,\n    \"culturas\": [\"Banana\", \"Cenoura\", \"Cana de açucar\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/produtores",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"produtores"
+							]
+						},
+						"description": "Método para cadastrar um novo produtor\n\nBody: As informações do produtor"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Produtor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"area_agricultavel\": 9.0,\n    \"cidade\": \"Chapeco\",\n    \"cpf_cnpj\": \"00.000.000/0001-02\",\n    \"culturas\": \"{Banana,Cenoura,\\\"Cana de açucar\\\"}\",\n    \"estado\": \"SC\",\n    \"id\": 3,\n    \"nome\": \"Yuri Martinelli alterado\",\n    \"nome_fazenda\": \"querencia 2 alterado\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/produtores/<id>",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"produtores",
+								"<id>"
+							]
+						},
+						"description": "Método para atualizar produtores  \n  \nParamêtro: ID do produtor á ser atualizado\n\nBody: As informações para atualizar"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Produtor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful DELETE request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/produtores/<id>",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"produtores",
+								"<id>"
+							]
+						},
+						"description": "Método para de deletar um produtor\n\nParâmetro: O ID do produtor a ser deletado"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Produtor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/produtores/<id>",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"produtores",
+								"<id>"
+							]
+						},
+						"description": "Método para consultar um produtor específico\n\nParâmetro: O ID do produtor"
+					},
+					"response": []
+				}
+			],
+			"description": "Requisições do produtor"
+		},
+		{
+			"name": "Dashboard",
+			"item": [
+				{
+					"name": "Get Dashboard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/dashboard",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"dashboard"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Requisições do Dashboard"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+}

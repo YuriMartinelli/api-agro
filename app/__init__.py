@@ -12,4 +12,6 @@ def create_app():
 
     app.register_blueprint(produtores_route.bp)
     app.register_blueprint(dashboard_route.bp)
+
+    
     return app
