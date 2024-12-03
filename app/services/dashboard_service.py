@@ -14,6 +14,7 @@ class DashboardService:
         ).group_by(Produtor.estado).all()
 
         culturas = db.session.query(Produtor.culturas).all()
+        culturas = [cultura[0] if isinstance(cultura[0], str) else ','.join(cultura) for cultura in culturas]
         cultura_count = self._process_culturas(culturas)
 
         uso_solo = db.session.query(

@@ -11,3 +11,6 @@ def validar_cnpj(cnpj):
     if re.match(regex_cnpj, cnpj):
         return True
     return False
+
+def validar_cpf_cnpj(cpf_cnpj):
+    return validar_cpf(cpf_cnpj) or validar_cnpj(cpf_cnpj)
