@@ -15,7 +15,7 @@ def test_create_produtor(client):
 
 def test_create_produtor_invalid_area(client):
     response = client.post("/produtores", json={
-        "cpf_cnpj": "98765432100",
+        "cpf_cnpj": "00.000.000/0001-07",
         "nome": "Produtor Inválido",
         "nome_fazenda": "Fazenda Inválida",
         "cidade": "Cidade Inválida",
@@ -26,4 +26,4 @@ def test_create_produtor_invalid_area(client):
         "culturas": "Algodão"
     })
     assert response.status_code == 400
-    assert "não pode ser maior que a área total" in response.json()["error"]
+    assert "A soma da área agricultável e da vegetação" in response.json["error"]
